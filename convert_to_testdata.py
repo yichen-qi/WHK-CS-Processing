@@ -36,8 +36,7 @@ class Convert_traindata:
         return inputs, outputs, co_ind
 
 
-# data_folder_48 = 'data_excel_48'
-data_folder_48 = 'Neuer Ordner'
+data_folder_48 = 'data_excel_48'
 
 data_folder_192 = 'data_excel_192'
 
@@ -59,7 +58,7 @@ inputs_192, outputs_192, co_ind_192 = ct_192.con_td()
 # np.save(os.path.join(save_folder_path, 'inputs_192.npy'), inputs_192)
 # np.save(os.path.join(save_folder_path, 'outputs_192.npy'), outputs_192)
 
-save_folder_path = '3D_plot'
-np.save(os.path.join(save_folder_path, 'inputs_48.npy'), inputs_48)
-np.save(os.path.join(save_folder_path, 'outputs_48.npy'), outputs_48)
+# save_folder_path = '3D_plot'
+# np.save(os.path.join(save_folder_path, 'inputs_48.npy'), inputs_48)
+# np.save(os.path.join(save_folder_path, 'outputs_48.npy'), outputs_48)
 
