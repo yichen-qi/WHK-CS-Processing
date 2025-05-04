@@ -39,6 +39,8 @@ A user-friendly **PyQt6 GUI** application for converting `.txt` files into **Exc
 ```text
 project/
 ├── APPp.py
+├── data_txt
+├── data_excel
 ├── traindata_npy/
 │   ├── inputs.npy
 │   ├── outputs.npy
@@ -49,5 +51,12 @@ project/
 └── valdata_npy/
     ├── inputs.npy
     └── outputs.npy
+```
+
+You can customize the save paths by editing the output directory selection in the GUI.  
+To manually change the **default output path** in code, look for lines like:
+
+```python
+output_path = os.path.join(current_dir, 'traindata_npy')
 
 
