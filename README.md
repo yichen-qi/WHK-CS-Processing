@@ -79,8 +79,29 @@ pip install pyqt6 pandas numpy openpyxl
 
 2. Run the app:
 
-```bash
-cd your_projectfolder_name
-git clone
-python APPp.py
+  ```bash
+  git clone https://github.com/yichen-qi/WHK-CS-Processing.git your_projectfolder_name
+  cd your_projectfolder_name
+  python APPp.py
+  ```
+3. Use the GUI to:
+   
+  ✅ Convert .txt files to .xlsx in data_excel/
+
+  ✅ Generate .npy datasets into traindata_npy/, testdata_npy/, and valdata_npy/
+
+---
+
+## 📝 Notes
+
+- 📄 Each `.txt` file must follow a naming format like: `T85_A0.5_YM65.txt`
+- 🧮 The program groups every **4 nodes** into **1 element**, converting **192 nodes → 48 elements**
+- 📌 `co_ind.npy` (coordinate data) is generated **only for training data**
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
 
