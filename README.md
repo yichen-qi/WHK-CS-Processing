@@ -1,0 +1,53 @@
+# 📊 Data Converter Tool
+
+A user-friendly **PyQt6 GUI** application for converting `.txt` files into **Excel spreadsheets** and generating `.npy` datasets for machine learning — including **training**, **testing**, and **validation** sets.
+
+---
+
+## 🧭 Table of Contents
+
+- [✨ Features](#-features)
+- [🗂️ Folder Structure](#️-folder-structure)
+- [⚙️ Requirements](#️-requirements)
+- [🚀 Getting Started](#-getting-started)
+- [📝 Notes](#-notes)
+- [📄 License](#-license)
+
+---
+
+## ✨ Features
+
+### 🔄 TXT to Excel Conversion
+- 🔍 Extracts parameters from filenames:  
+  **Temperature (`T`)**, **Amplitude (`A`)**, **Young's Modulus (`YM`)**
+- 🧹 Cleans, averages, and organizes data into `.xlsx` format
+  The focus is on **converting the 192 nodes** in the cross-section of the solder joint strain distribution **into 48 elemental areas**,
+  each of which takes the **mean** of the **coordinates and plastic strain values** on the 4 nodes.
+- 📂 Supports **batch processing** of multiple `.txt` files
+
+### 📁 Dataset Generation
+- Converts Excel files into **NumPy `.npy` arrays**:
+  - `inputs.npy` – input features  
+  - `outputs.npy` – target values  
+  - `co_ind.npy` – coordinate info (for training data only)
+- 📦 Supports **train**, **test**, and **validation** folder generation
+
+---
+
+## 🗂️ Folder Structure
+
+```text
+project/
+├── APPp.py
+├── traindata_npy/
+│   ├── inputs.npy
+│   ├── outputs.npy
+│   └── co_ind.npy
+├── testdata_npy/
+│   ├── inputs.npy
+│   └── outputs.npy
+└── valdata_npy/
+    ├── inputs.npy
+    └── outputs.npy
+
+
