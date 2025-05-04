@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import (QApplication, QWidget, QPushButton, QFileDialog,
 
 
 def custom_float_conversion(value):
-    """ 处理字符串中的浮点数 """
+    
     try:
         return float(value.replace(',', '.'))
     except ValueError:
@@ -55,34 +55,34 @@ class DataConverterApp(QWidget):
         self.setWindowTitle('Data Convert Tool')
         self.setGeometry(100, 100, 600, 400)
 
-        # 创建 TabWidget（选项卡）
-        self.tabs = QTabWidget()  # 创建一个选项卡控件
-        self.tab_txt_excel = QWidget()  # 创建“TXT to Excel”页面
-        self.tab_train_data = QWidget()  # 创建“Train Data”页面
-        self.tab_test_data = QWidget()  # 创建“Test Data”页面
-        self.tab_val_data = QWidget()  # 创建“Validation Data”页面
+        
+        self.tabs = QTabWidget()  
+        self.tab_txt_excel = QWidget()  
+        self.tab_train_data = QWidget()  
+        self.tab_test_data = QWidget()  
+        self.tab_val_data = QWidget()  
 
-        # 添加选项卡
-        self.tabs.addTab(self.tab_txt_excel, "TXT to Excel") # 添加“TXT to Excel”标签页
+        
+        self.tabs.addTab(self.tab_txt_excel, "TXT to Excel") 
         self.tabs.addTab(self.tab_train_data, "Train Data")
         self.tabs.addTab(self.tab_test_data, "Test Data")
         self.tabs.addTab(self.tab_val_data, "Validation Data")
 
-        # 初始化各个界面
-        self.init_txt_excel_tab() # 初始化 "TXT to Excel" 界面
+        
+        self.init_txt_excel_tab() 
         self.init_train_data_tab()
         self.init_test_data_tab()
         self.init_val_data_tab()
 
-        # 创建主窗口的垂直布局
+        
         main_layout = QVBoxLayout()
-        main_layout.addWidget(self.tabs) # 将选项卡控件添加到主布局
-        self.setLayout(main_layout) # 设置窗口的主布局
+        main_layout.addWidget(self.tabs) 
+        self.setLayout(main_layout) 
 
     def init_txt_excel_tab(self):
-        """ 初始化 TXT to Excel 界面 """
+        
         layout = QVBoxLayout()
-        group_box = QGroupBox("TXT to Excel") # 创建一个分组框（带标题）
+        group_box = QGroupBox("TXT to Excel") 
 
         self.txt_label = QLabel("Please select the TXT folder")
         self.txt_button = QPushButton("Select TXT folder")
@@ -97,7 +97,7 @@ class DataConverterApp(QWidget):
 
         self.status_label = QLabel("Waiting for operation...")
 
-        # 布局
+        
         vbox = QVBoxLayout()
         vbox.addWidget(self.txt_label)
         vbox.addWidget(self.txt_button)
@@ -107,15 +107,15 @@ class DataConverterApp(QWidget):
         vbox.addWidget(self.status_label)
 
         group_box.setLayout(vbox)
-        layout.addWidget(group_box) # 把分组框添加到选项卡布局
-        self.tab_txt_excel.setLayout(layout) # 设置当前选项卡的布局
+        layout.addWidget(group_box) 
+        self.tab_txt_excel.setLayout(layout) 
 
-        # 变量
+        
         self.txt_folder = None
         self.excel_folder = None
 
     def init_train_data_tab(self):
-        """ 初始化 Train Data 界面 """
+        
         layout = QVBoxLayout()
         group_box = QGroupBox("generate training set")
 
@@ -128,7 +128,7 @@ class DataConverterApp(QWidget):
 
         self.train_status_label = QLabel("Waiting for operation...")
 
-        # 布局
+        
         vbox = QVBoxLayout()
         vbox.addWidget(self.train_label)
         vbox.addWidget(self.train_button)
@@ -139,11 +139,11 @@ class DataConverterApp(QWidget):
         layout.addWidget(group_box)
         self.tab_train_data.setLayout(layout)
 
-        # 变量
+        
         self.train_folder = None
 
     def init_test_data_tab(self):
-        """ 初始化 Test Data 界面 """
+        
         layout = QVBoxLayout()
         group_box = QGroupBox("generate test set")
 
@@ -156,7 +156,7 @@ class DataConverterApp(QWidget):
 
         self.test_status_label = QLabel("waiting for operation...")
 
-        # 布局
+        
         vbox = QVBoxLayout()
         vbox.addWidget(self.test_label)
         vbox.addWidget(self.test_button)
@@ -167,12 +167,12 @@ class DataConverterApp(QWidget):
         layout.addWidget(group_box)
         self.tab_test_data.setLayout(layout)
 
-        # 变量
+        
         self.test_folder = None
 
 
     def init_val_data_tab(self):
-        """ 初始化 Validation Data 界面 """
+        
         layout = QVBoxLayout()
         group_box = QGroupBox("generate validation set")
 
@@ -185,7 +185,7 @@ class DataConverterApp(QWidget):
 
         self.val_status_label = QLabel("waiting for operation...")
 
-        # 布局
+        
         vbox = QVBoxLayout()
         vbox.addWidget(self.val_label)
         vbox.addWidget(self.val_button)
@@ -196,32 +196,32 @@ class DataConverterApp(QWidget):
         layout.addWidget(group_box)
         self.tab_val_data.setLayout(layout)
 
-        # 变量
+        
         self.val_folder = None
 
 
 
     def select_folder_txt(self):
-        """ 选择 TXT 文件夹 """
+        
         folder = QFileDialog.getExistingDirectory(self, 'Select TXT data folder')
         if folder:
             self.txt_folder = folder
             self.txt_label.setText(f'Selected: {folder}')
 
     def select_output_folder(self):
-        """ 选择 Excel 保存文件夹 """
+        
         folder = QFileDialog.getExistingDirectory(self, 'Select Excel output folder')
         if folder:
             self.excel_folder = folder
             self.excel_label.setText(f'Output folder: {folder}')
 
     def convert_txt_to_excel(self):
-        """ TXT → Excel 转换功能 """
+        
         if not self.txt_folder or not self.excel_folder:
             self.status_label.setText("please select both TXT and Excel folders first")
             return
 
-        # 模拟转换逻辑（你可以在这里加上具体转换代码）
+        
         for file_name in os.listdir(self.txt_folder):
             if file_name.endswith('.txt'):
                 file_path = os.path.join(self.txt_folder, file_name)
@@ -264,14 +264,14 @@ class DataConverterApp(QWidget):
         self.status_label.setText(f"TXT data converted to Excel in {self.excel_folder}")
 
     def select_folder_train(self):
-        """ 选择用于训练集的 Excel 目录 """
+        
         folder = QFileDialog.getExistingDirectory(self, 'select training data folder')
         if folder:
             self.train_folder = folder
             self.train_label.setText(f'selected: {folder}')
 
     def convert_train_data(self):
-        """ 生成训练集 """
+        
         if not self.train_folder:
             self.train_status_label.setText("please select training data folder first")
             return
@@ -289,14 +289,14 @@ class DataConverterApp(QWidget):
         self.train_status_label.setText(f"training data generated: {save_folder}")
 
     def select_folder_test(self):
-        """ 选择用于测试集的 Excel 目录 """
+        
         folder = QFileDialog.getExistingDirectory(self, 'select test data folder')
         if folder:
             self.test_folder = folder
             self.test_label.setText(f'selected: {folder}')
 
     def convert_test_data(self):
-        """ 生成测试集 """
+        
         if not self.test_folder:
             self.test_status_label.setText("please select test data folder first")
             return
@@ -315,14 +315,14 @@ class DataConverterApp(QWidget):
 
     
     def select_folder_val(self):
-        """ 选择用于验证集的 Excel 目录 """
+        
         folder = QFileDialog.getExistingDirectory(self, 'select validation data folder')
         if folder:
             self.val_folder = folder
             self.val_label.setText(f'selected: {folder}')
 
     def convert_val_data(self):
-        """ 生成验证集 """
+        
         if not self.val_folder:
             self.val_status_label.setText("please select validation data folder first")
             return
