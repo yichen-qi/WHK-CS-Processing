@@ -58,5 +58,29 @@ To manually change the **default output path** in code, look for lines like:
 
 ```python
 output_path = os.path.join(current_dir, 'traindata_npy')
+```
 
+Replace 'traindata_npy' with your desired directory, or expose this as a user input in the GUI.
+
+---
+
+## ⚙️ Requirements
+
+```bash
+Python 3.12
+pip install pyqt6 pandas numpy openpyxl
+```
+
+---
+
+## 🚀 Getting Started
+
+1. Place your `.txt` files in the `data_txt/` folder.
+
+2. Run the app:
+
+```bash
+cd your_projectfolder_name
+git clone
+python APPp.py
 
