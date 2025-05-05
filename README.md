@@ -41,6 +41,9 @@ project/
 ├── APPp.py
 ├── data_txt
 ├── data_excel
+│   ├── data_excel_48_test
+│   ├── data_excel_48_train
+│   ├── data_excel_48_val
 ├── traindata_npy/
 │   ├── inputs.npy
 │   ├── outputs.npy
